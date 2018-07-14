@@ -5,34 +5,58 @@
                 <span>+86</span>
                 <i></i>
             </div>
-            <input type="text" id="tel_name" ref='tel_name' placeholder="手机号码">
+            <input type="text" id="tel_name" placeholder="手机号码" @focus="gone" v-model="info.username">
         </div>
 
         <div class="ver_code">
-            <input type="text" id="code" ref='code' placeholder="短信验证码">
+            <input type="text" id="code" placeholder="短信验证码" @focus="gone" v-model="info.password">
             <span>获取验证码</span>
         </div>
-        <div class="err_tip">{{tip}}</div>
+        <div class="err_tip" ref="tip"><span>{{tip}}</span></div>
 
-        <div class="go">立即登录/注册</div>
+        <div class="go" @click="vertify">立即登录/注册</div>
 
         <div class="user_go" @click="res">用户名密码登录</div>
     </div>
 </template>
 
 <script>
+    import jquery from 'jquery'
     export default {
         data(){
            return{
                 tip:'',
+                info:{},
                 pageNum:2
            }
         },
         methods:{
             res(){
                 this.$emit('event',this.pageNum);
-                this.$refs.tel_name.value='';
-                this.$refs.code.value='';
+                this.info.username ='';
+                this.info.password ='';
+                this.gone();
+            },
+            gone(){
+                this.$refs.tip.style.display = 'none';
+            },
+            vertify(){
+                var reg1 = /^1[345678][0-9]{9}$/i;
+                
+                if(!this.info.username){
+                    this.$refs.tip.style.display = 'block';
+                    this.tip = '请输入手机号'
+                }else if(!reg1.test(this.info.username)){
+                    this.$refs.tip.style.display = 'block';
+                    this.tip = '手机格式不正确'
+                }else if(!this.info.password){
+                    this.$refs.tip.style.display = 'block';
+                    this.tip = '请输入验证码'
+                }else{
+                  
+                  
+                }
+                
             }
         }
     }
@@ -111,9 +135,14 @@
             margin-bottom: .05rem;
             line-height: .2rem;
             color: #F66;
-            display: none;
             padding-top: .15rem;
             font-size:.14rem;
+            display:none;
+            span{
+                background:url(../../assets/login_tip.jpg) no-repeat left center;
+                background-size:.14rem .14rem;
+                padding-left:.19rem;
+            }
         }
         .go{
             margin-top:.24rem;

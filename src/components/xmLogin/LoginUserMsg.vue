@@ -1,40 +1,63 @@
 <template>
     <div class="loginUserMsg">
         <div class="user_num">
-            <input type="text" id="user_name" ref="user_name" placeholder="邮箱/手机号码/小米ID">
+            <input type="text" id="user_name" @focus="gone" v-model="info.username" placeholder="邮箱/手机号码/小米ID">
         </div>
-
         <div class="password">
-            <input type="text" id="pass_word" ref="pass_word" placeholder="密码">
+            <input type="password" id="pass_word" @focus="gone" v-model="info.password" placeholder="密码">
             <span></span>
         </div>
-        <div class="err_tip">{{tip}}</div>
-
-        <div class="go">登录</div>
+        <div class="err_tip" ref="tip"><span>{{tip}}</span></div>
+    
+        <div class="go" @click="vertify">登录</div>
 
         <div class="user_go" @click="res">手机短信登录/注册</div>
     </div>
 </template>
 
 <script>
-import $ from 'jquery' 
-
+    import $ from 'jquery' 
     export default {
          data(){
            return{
                 tip:'',
-                pageNum:1
+                pageNum:1,
+                info:{}
            }
         },
         methods:{
             res(){
                 this.$emit('event',this.pageNum);
-                this.$refs.user_name.value='';
-                this.$refs.pass_word.value='';
+                this.info.username='';
+                this.info.password='';
+                this.gone();
+            },
+            gone(){
+                this.$refs.tip.style.display = 'none';
+            },
+            vertify(){
+                var reg1 = /^1[345678][0-9]{9}$/i;
+
+                if(!this.info.username){
+                    this.$refs.tip.style.display = 'block';
+                    this.tip = '请输入账号'
+                }else if(!reg1.test(this.info.username)){
+                    this.$refs.tip.style.display = 'block';
+                    this.tip = '用户名不正确'
+                }else if(!this.info.password){
+                    this.$refs.tip.style.display = 'block';
+                    this.tip = '请输入密码'
+                }else{
+                  
+                  
+                }
+                
+
+                
             }
         },
         mounted(){
-            
+           
         }
     }
 </script>
@@ -85,12 +108,17 @@ import $ from 'jquery'
 
         }
         .err_tip{
+            display:none;
             margin-bottom: .05rem;
             line-height: .2rem;
             color: #F66;
-            display: none;
             padding-top: .15rem;
             font-size:.14rem;
+            span{
+                background:url(../../assets/login_tip.jpg) no-repeat left center;
+                background-size:.14rem .14rem;
+                padding-left:.19rem;
+            }
         }
         .go{
             margin-top:.24rem;
