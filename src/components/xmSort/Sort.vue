@@ -1,7 +1,7 @@
 <template>
     <div class="sort">
         <sort-list></sort-list>
-        <sort-content></sort-content>
+        <sort-content :product="proDatas"></sort-content>
     </div>
 </template>
 
@@ -9,6 +9,12 @@
     import SortList from './SortList'
     import SortContent from './SortContent'
     export default {
+        // data(){
+        //     return{
+                
+        //     }
+        // },
+        props:['proDatas'],
         components:{
             SortList,
             SortContent
