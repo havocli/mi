@@ -1,20 +1,22 @@
 <template>
     <div class="sort_list">
         <ul>
-            <li>生活</li>
+            <li v-for="title in tit" :key="title" >{{title.name}}</li>
         </ul>
     </div>
 </template>
 
 <script>
     export default {
-        
+        props:['tit']
     }
 </script>
 
 <style lang="scss" scoped>
     .sort_list{
         width:.78rem;
+        height:100%;
+        overflow-y: auto;
         ul{
             border-right:1px solid #efefef;
             li{

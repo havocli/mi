@@ -1,7 +1,7 @@
 <template>
     <div class="sort_body">
-        <sort-list></sort-list>
-        <sort-content :product="proDatas"></sort-content>
+        <sort-list :tit="proDatas"></sort-list>
+        <sort-content :product="proDatas"><slot></slot></sort-content>
     </div>
 </template>
 
@@ -24,11 +24,10 @@
 
 <style lang="scss" scoped>
     .sort_body{
-        display: -webkit-flex;
-        .sort-content{
-            height:100%;
-        
-        }
+        display: flex;
+        flex:1;
+        overflow:auto;
+
     }
 </style>
 

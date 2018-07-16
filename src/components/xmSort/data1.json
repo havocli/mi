@@ -1,48 +1,19 @@
-[{"id":1,"name":"新品","imgTopUrl":"../../../static/img/item1.jpg","item":[{"itemName":"手机","product":["../../../static/img/itemLi1-1.png","../../../static/img/itemLi1-1.png","../../../static/img/itemLi1-1.png","../../../static/img/itemLi1-1.png",],"imgBottomUrl":"../../../static/img/item_more1.jpg"},
-            {
-                "itemName":"电视",
-                "product":[
-                    "../../../static/img/itemLi1-12.png",
-                    "../../../static/img/itemLi1-12.png",
-                    "../../../static/img/itemLi1-12.png",
-                    "../../../static/img/itemLi1-12.png",
-                    "../../../static/img/itemLi1-12.png",
-                ]
-            },
-            {
-                "itemName":"电脑",
-                "product":[
-                    "../../../static/img/itemLi1-12.png"
-                ]
-            }
-        ]
-    },
-    {
-        "id":1,
-        "name":"手机",
-        "imgTopUrl":"../../../static/img/item1.jpg",
-        "item":[
-            {
-                "itemName":"小米手机",
-                "product":[
-                    "../../../static/img/itemLi1-1.png"
-                ],
-                
-            },
-            {
-                "itemName":"红米手机",
-                "product":[
-                    "../../../static/img/itemLi1-12.png"
-                ]
-            },
-            {
-                "itemName":"移动4G+专区",
-                "product":[
-                    "../../../static/img/itemLi1-12.png"
-                ],
-                "imgBottomUrl":"../../../static/img/item_more1.jpg"
-            }
-        ]
-    }
-    
-]
+{
+    "id":2,
+    "name":"手机",
+    "pic":"../../../static/img/item2.jpg",
+    "item":[
+        {
+            "itemName":"移动4G",
+            "product":[
+                {
+                    "pro":"红米6A","shows":"../../../static/img/itemLi1-11.png"
+                },
+            ],
+        }
+    ]
+}
+
+"botPic":"../../../static/img/item_more3.jpg"
+
+[0,1062,2767,3767,4545,5041,5536,6241,7241,7779,8170,8665,9055,9445,9834,11044,11435,11719]

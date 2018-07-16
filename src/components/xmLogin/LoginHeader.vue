@@ -21,7 +21,7 @@
             display: block;
             width:.48rem;
             height:.48rem;
-            background: url(../../assets/milogo.png) no-repeat center;
+            background: url(../../assets/milogos.png) no-repeat center;
             background-size: 100% 100%;
             margin: 0 auto 15px;
         }

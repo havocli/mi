@@ -9,14 +9,12 @@
                 <span>{{pro.itemName}}</span>
             </div>
             <ul>
-                <li v-for="showP in pro.product" :key="showP"><a href="javascript:;"><img :src="showP"><span>小米8</span></a></li>
+                <li v-for="showP in pro.product" :key="showP"><a href="javascript:;"><img :src="showP.shows"><span>{{showP.pro}}</span></a></li>
             </ul>
             <div class="item_more">
-                <a href="javascript:;"><img :src="pro.imgBottomUrl"></a>
+                <a href="javascript:;"><img :src="pro.botPic"></a>
             </div>
         </div>
-        
-        
     </div>
 </template>
 
@@ -26,9 +24,9 @@
             return{
             }
         },
+    
         props:['items'],
         mounted(){
-            console.log(this.items.pic)
         }
         
     }
