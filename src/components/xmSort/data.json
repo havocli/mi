@@ -36,7 +36,7 @@
     {
         "id":1,
         "name":"手机",
-        "pic":"../../../static/img/item1.jpg",
+        "pic":"../../../static/img/item4.jpg",
         "item":[
             {
                 "itemName":"小米手机",

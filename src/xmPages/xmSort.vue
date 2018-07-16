@@ -1,11 +1,11 @@
 <template>
     <div class="xmSort">
-        <sort :proDatas="data"></sort>
+        <sort-body :proDatas="data"></sort-body>
     </div>
 </template>
 
 <script>
-    import Sort from '../components/xmSort/Sort'
+    import SortBody from '../components/xmSort/SortBody'
     export default {
         data(){
             return{
@@ -47,7 +47,7 @@
                     {
                         "id":1,
                         "name":"手机",
-                        "pic":"../../../static/img/item1.jpg",
+                        "pic":"../../../static/img/item4.jpg",
                         "item":[
                             {
                                 "itemName":"小米手机",
@@ -75,7 +75,7 @@
             }
         },
         components:{
-            Sort
+            SortBody
         }
     }
 </script>

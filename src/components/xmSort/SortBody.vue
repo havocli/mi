@@ -1,5 +1,5 @@
 <template>
-    <div class="sort">
+    <div class="sort_body">
         <sort-list></sort-list>
         <sort-content :product="proDatas"></sort-content>
     </div>
@@ -23,8 +23,12 @@
 </script>
 
 <style lang="scss" scoped>
-    .sort{
+    .sort_body{
         display: -webkit-flex;
+        .sort-content{
+            height:100%;
+        
+        }
     }
 </style>
 

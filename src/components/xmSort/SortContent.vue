@@ -17,7 +17,8 @@
 <style lang="scss" scoped>
     .sort_content{
         padding:0 .16rem;
-        -webkit-flex:1;
+        flex:1;
+        height:100%;
     }
 </style>
 

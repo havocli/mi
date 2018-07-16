@@ -1,6 +1,6 @@
-<template>
+ <template>
     <div class="sort_item">
-        <div class="pic_show">
+        <div class="pic_show" >
             <a href="javascript:;"><img :src="items.pic"></a>
         </div>
   
@@ -28,7 +28,7 @@
         },
         props:['items'],
         mounted(){
-            console.log(items)
+            console.log(this.items.pic)
         }
         
     }
@@ -109,11 +109,14 @@
                 }
             }
             .item_more{
-                width:100%;
-                height:.4rem;
-                img{
-                    width:100%;
-                    height:100%;
+                // width:100%;
+                // height:.4rem;
+                a{
+                    display: block;
+                    img{
+                        width:100%;
+                        height:100%;
+                    }
                 }
             }
         }
