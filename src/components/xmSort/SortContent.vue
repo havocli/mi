@@ -8,18 +8,33 @@
 <script>
     import SortConItem from './SortConItem'
     export default {
-        props:['product'],
+        data(){
+            return{
+                position:[0,1062,2767,3767,4545,5041,5536,6241,7241,7779,8170,8665,9055,9445,9834,11044,11435,11719,11900]
+            }
+        },
+        props:['product','counts'],
         components:{
             SortConItem
         },
         methods:{
             compute(){
-                // console.log(this.$refs.cont.scrollTop)
+                var top = this.$refs.cont.scrollTop;
+                var p   = this.position;
+                // p.forEach((v,k)=>{
+                //     if(top<p[k+1]&&top>=v){
+                //          this.$emit('scrolls',k)
+                //     }
+                // });
+                for(let i =0;i<p.length;i++){
+                    if(top<p[i+1]&&top>=p[i]){
+                        this.$emit('scrolls',i)
+                    }
+                }
             }
         },
-        mounted(){
-            // this.$refs.cont.scrollTop=3767
-            
+        updated(){
+            this.$refs.cont.scrollTop=this.position[this.counts]
         }
     }
 </script>
@@ -31,7 +46,7 @@
         height:100%;
         overflow-y: auto;
         aside{
-            height:3.87rem;
+            height:4.5rem;
             width:100%;
         }
     }
