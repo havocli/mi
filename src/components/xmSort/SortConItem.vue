@@ -4,12 +4,12 @@
             <a href="javascript:;"><img :src="items.pic"></a>
         </div>
   
-        <div class="item_li" v-for="pro in items.item" :key="pro">
+        <div class="item_li" v-for="pro in items.item" :key="pro.itemName">
             <div class="item_tit"> 
                 <span>{{pro.itemName}}</span>
             </div>
             <ul>
-                <li v-for="showP in pro.product" :key="showP"><a href="javascript:;"><img :src="showP.shows"><span>{{showP.pro}}</span></a></li>
+                <li v-for="showP in pro.product" :key="showP.aaa"><a href="javascript:;"><img :src="showP.shows"><span>{{showP.pro}}</span></a></li>
             </ul>
             <div class="item_more">
                 <a href="javascript:;"><img :src="pro.botPic"></a>
@@ -98,6 +98,7 @@
                         span{
                             margin-top: .14rem;
                             font-size: .12rem;
+                            width:100%;
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;

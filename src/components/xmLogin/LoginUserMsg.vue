@@ -31,12 +31,13 @@
                 this.info.username='';
                 this.info.password='';
                 this.gone();
+                // console.log(1)
             },
             gone(){
                 this.$refs.tip.style.display = 'none';
             },
             vertify(){
-                var reg1 = /^1[345678][0-9]{9}$/i;
+                var reg1 = /^(1[345678][0-9]{9})|(\w{6,12})$/i;
 
                 if(!this.info.username){
                     this.$refs.tip.style.display = 'block';
@@ -48,7 +49,19 @@
                     this.$refs.tip.style.display = 'block';
                     this.tip = '请输入密码'
                 }else{
-                  
+                  $.post('http://localhost:3000/login/api/login',this.info,(data)=>{
+                        if(data){
+                            this.info.username ='';
+                            this.info.password ='';
+                            location.href='http://localhost:8080/#/sort';
+                        }else{
+                            this.info.username='';
+                            this.info.password='';
+                            this.$refs.tip.style.display = 'block';
+                            this.tip = '用户名或密码错误';
+                        }
+                        // console.log(data)
+                    },'json')
                   
                 }
                 

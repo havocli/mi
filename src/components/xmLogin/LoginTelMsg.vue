@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import jquery from 'jquery'
+    import $ from 'jquery'
     export default {
         data(){
            return{
@@ -42,7 +42,7 @@
             },
             vertify(){
                 var reg1 = /^1[345678][0-9]{9}$/i;
-                
+                var reg2 = /^\d{6}$/;
                 if(!this.info.username){
                     this.$refs.tip.style.display = 'block';
                     this.tip = '请输入手机号'
@@ -52,13 +52,26 @@
                 }else if(!this.info.password){
                     this.$refs.tip.style.display = 'block';
                     this.tip = '请输入验证码'
+                }else if(!reg2.test(this.info.password)){
+                    this.$refs.tip.style.display = 'block';
+                    this.tip = '请输入六位验证码'
                 }else{
-                  
+                    $.post('http://localhost:3000/sign/api/sign',this.info,(data)=>{
+                        if(data){
+                            this.info.username ='';
+                            this.info.password ='';
+                            location.href='http://localhost:8080/#/sort';
+                        }else{
+                            this.$refs.tip.style.display = 'block';
+                            this.tip = '账号已存在，请选择用户名密码登录';
+                        }
+                    },'json')
                   
                 }
                 
             }
-        }
+        },
+       
     }
 </script>
 
@@ -128,6 +141,7 @@
                 cursor: pointer;
                 color: #2ea5e5;
                 font-size: .14rem;
+                text-align:center;
             }
 
         }

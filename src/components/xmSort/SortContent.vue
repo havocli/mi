@@ -1,6 +1,6 @@
 <template>
     <div class="sort_content"  ref="cont" @scroll="compute">
-        <sort-con-item v-for="item in product" :key="item" :items="item"></sort-con-item>
+        <sort-con-item v-for="item in product" :key="item.id" :items="item"></sort-con-item>
         <aside></aside>
     </div>
 </template>
@@ -46,7 +46,7 @@
         height:100%;
         overflow-y: auto;
         aside{
-            height:4.5rem;
+            height:80%;
             width:100%;
         }
     }

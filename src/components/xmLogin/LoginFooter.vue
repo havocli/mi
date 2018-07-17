@@ -79,6 +79,9 @@
             }
         }
         .login_state{
+            position:fixed;
+            width:100%;
+            bottom:.7rem;
             font-size:.14rem;
             color:#9b9b9b;
             text-align: center;
